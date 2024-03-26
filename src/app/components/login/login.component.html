@@ -7,34 +7,29 @@
                         <h3 class="pt-3 font-weight" id="img-logo">Login</h3>   
                     </div>
                     <div class="panel-body p-3">
-                        <form>
+                        <form [formGroup]="loginForm">
                             <div class="form-group pt-3">
-                                <div class="input-field">
+                                <div class="input-field" [class.error]="loginForm.controls['Email'].dirty && loginForm.hasError('required','Email')">
                                     <mat-icon>person</mat-icon>
-                                    <input type="text" placeholder="Usuario">
+                                    <input formControlName="email" type="text" placeholder="Email">
                                 </div>
                             </div>
+                            <small *ngIf="loginForm.controls['Email'].dirty && loginForm.hasError('required','Email')" class="text-danger"></small>
                              <div class="form-group pt-3">
-                                <div class="input-field">
+                                <div class="input-field" [class.error]="loginForm.controls['senha'].dirty && loginForm.hasError('required','senha')">
                                     <mat-icon>lock</mat-icon>
-                                    <input [type]="type" placeholder="Senha">
+                                    <input formControlName="senha" [type]="type" placeholder="Senha">
                                     <span (click)="hideShowPass()"><mat-icon class="{{eyeIcon}}" >remove_red_eye</mat-icon>
                                     </span>
                                 </div>
                             </div>
+                            <small *ngIf="loginForm.controls['senha'].dirty && loginForm.hasError('required','senha')" class="text-danger"></small>
                             <div class="form-inline fr mt-4">
                                 <a id="forget" class="font-weight-bold">Esqueceu a senha? </a>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-block mt-4 w-100">Login</button>
-                            <div class="text-center pt-4 text-muted">Não tem uma conta? <a id="forget" routerLink="/signup">Sign Up</a></div>
+                            <button (click)="onLogin()" type="submit" class="btn btn-primary btn-block mt-4 w-100">Login</button>
+                            <div class="text-center pt-4 text-muted">Primeiro acesso? <a id="forget" routerLink="/signup">Cadastre-se</a></div>
                         </form>
-                    </div>
-                    <div class="mx-3 my-2 py-2 bordert">
-                        <div class="text-center py-3">
-                            <a href="https://wwww.facebook.com" target="_blank" class="px-2"> <img src="https://www.dpreview.com/files/p/articles/4698742202/facebook.jpeg" alt=""> </a>
-                            <a href="https://www.google.com" target="_blank" class="px-2"> <img src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-suite-everything-you-need-know-about-google-newest-0.png" alt=""> </a>
-                            <a href="https://www.github.com" target="_blank" class="px-2"> <img src="https://www.freepnglogos.com/uploads/512x512-logo-png/512x512-logo-github-icon-35.png" alt=""> </a>
-                        </div>
                     </div>
                 </div>
             </div>

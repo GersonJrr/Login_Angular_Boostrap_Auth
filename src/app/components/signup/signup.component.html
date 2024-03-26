@@ -7,36 +7,46 @@
                         <h3 class="pt-3 font-weight" id="img-logo">Sign Up</h3>   
                     </div>
                     <div class="panel-body p-3">
-                        <form>
+                        <form [formGroup]="signUpForm">
                             <div class="form-group pt-3">
-                                <div class="input-field">
+                                <div class="input-field" [class.error]="signUpForm.controls['Usuario'].dirty && signUpForm.hasError('required','Usuario')">
                                     <mat-icon>person</mat-icon>
-                                    <input type="text" placeholder="Usuario">
+                                    <input formControlName="Usuario" type="text" placeholder="Usuario">
                                 </div>
                             </div>
-                             <div class="form-group pt-3">
-                                <div class="input-field">
+                            
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="signUpForm.controls['Nome'].dirty && signUpForm.hasError('required','Nome')">
+                                    <mat-icon>person</mat-icon>
+                                    <input formControlName="Nome" input type="text" placeholder="Nome Completo">
+                                </div>
+                            </div>
+                            
+
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="signUpForm.controls['Email'].dirty && signUpForm.hasError('required','Email')">
+                                    <mat-icon>alternate_email</mat-icon>
+                                    <input formControlName="Email" input type="text" placeholder="Email">
+                                </div>
+                            </div>
+                           
+                           
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="signUpForm.controls['CPF'].dirty && signUpForm.hasError('required','CPF')">
+                                    <mat-icon>assignment_ind</mat-icon>
+                                    <input formControlName="CPF"  input type="text" maxlength="11" placeholder="CPF">
+                                </div>
+                            </div>
+                           
+                            <div class="form-group pt-3">
+                                <div class="input-field" [class.error]="signUpForm.controls['Senha'].dirty && signUpForm.hasError('required','Senha')">
                                     <mat-icon>lock</mat-icon>
-                                    <input [type]="type" placeholder="Senha">
+                                    <input formControlName="Senha"  [type]="type" placeholder="Senha">
                                     <span (click)="hideShowPass()"><mat-icon class="{{eyeIcon}}" >remove_red_eye</mat-icon>
                                     </span>
                                 </div>
                             </div>
-                            <div class="form-group pt-3">
-                                <div class="input-field">
-                                    <mat-icon>person</mat-icon>
-                                    <input type="text" placeholder="Email">
-                                </div>
-                            </div>
-                            <div class="form-group pt-3">
-                                <div class="input-field">
-                                    <mat-icon>person</mat-icon>
-                                    <input type="text" maxlength="11" placeholder="CPF">
-                                </div>
-                            </div>
-                            
-                            
-                            <button type="submit" class="btn btn-primary btn-block mt-4 w-100">Sign Up</button>
+                            <button type="submit" class="btn btn-primary btn-block mt-4 w-100" (click)="onSignUp()">Cadastrar</button>
                             <div class="text-center pt-4 text-muted">Já tem uma conta? <a id="forget" routerLink="/login">Login</a></div>
                         </form>
                     </div>
