@@ -9,12 +9,12 @@
                     <div class="panel-body p-3">
                         <form [formGroup]="loginForm">
                             <div class="form-group pt-3">
-                                <div class="input-field" [class.error]="loginForm.controls['Email'].dirty && loginForm.hasError('required','Email')">
+                                <div class="input-field" [class.error]="loginForm.controls['email'].dirty && loginForm.hasError('required','email')">
                                     <mat-icon>person</mat-icon>
-                                    <input formControlName="email" type="text" placeholder="Email">
+                                    <input formControlName="email" type="text" placeholder="email">
                                 </div>
                             </div>
-                            <small *ngIf="loginForm.controls['Email'].dirty && loginForm.hasError('required','Email')" class="text-danger"></small>
+                            <small *ngIf="loginForm.controls['email'].dirty && loginForm.hasError('required','email')" class="text-danger"></small>
                              <div class="form-group pt-3">
                                 <div class="input-field" [class.error]="loginForm.controls['senha'].dirty && loginForm.hasError('required','senha')">
                                     <mat-icon>lock</mat-icon>

@@ -16,12 +16,14 @@ import { NgToastModule } from 'ng-angular-popup';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     SignupComponent,
     HomeComponent,
+
   ],
   imports: [
     BrowserModule,
